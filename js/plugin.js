@@ -87,8 +87,8 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
       this.updateItems(); this.calculateAll(); this.buildControls(); this.updateControls(); this.response(); this.moveEvents(); this.stopOnHover(); this.owlStatus(); !1 !== this.options.transitionStyle && this.transitionTypes(this.options.transitionStyle); !0 === this.options.autoPlay &&
         (this.options.autoPlay = 5E3); this.play(); this.$elem.find(".owl-wrapper").css("display", "block"); this.$elem.is(":visible") ? this.$elem.css("opacity", 1) : this.watchVisibility(); this.onstartup = !1; this.eachMoveUpdate(); "function" === typeof this.options.afterInit && this.options.afterInit.apply(this, [this.$elem])
     }, eachMoveUpdate: function () {
-    !0 === this.options.lazyLoad && this.lazyLoad(); !0 === this.options.autoHeight && this.autoHeight(); this.onVisibleItems(); "function" === typeof this.options.afterAction && this.options.afterAction.apply(this,
-      [this.$elem])
+      !0 === this.options.lazyLoad && this.lazyLoad(); !0 === this.options.autoHeight && this.autoHeight(); this.onVisibleItems(); "function" === typeof this.options.afterAction && this.options.afterAction.apply(this,
+        [this.$elem])
     }, updateVars: function () { "function" === typeof this.options.beforeUpdate && this.options.beforeUpdate.apply(this, [this.$elem]); this.watchVisibility(); this.updateItems(); this.calculateAll(); this.updatePosition(); this.updateControls(); this.eachMoveUpdate(); "function" === typeof this.options.afterUpdate && this.options.afterUpdate.apply(this, [this.$elem]) }, reload: function () { var a = this; g.setTimeout(function () { a.updateVars() }, 0) }, watchVisibility: function () {
       var a = this; if (!1 === a.$elem.is(":visible")) a.$elem.css({ opacity: 0 }),
         g.clearInterval(a.autoPlayInterval), g.clearInterval(a.checkVisible); else return !1; a.checkVisible = g.setInterval(function () { a.$elem.is(":visible") && (a.reload(), a.$elem.animate({ opacity: 1 }, 200), g.clearInterval(a.checkVisible)) }, 500)
@@ -102,8 +102,8 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
       var a =
         this, b = 0, e = a.itemsAmount - a.options.items; a.$owlItems.each(function (c) { var d = f(this); d.css({ width: a.itemWidth }).data("owl-item", Number(c)); if (0 === c % a.options.items || c === e) c > e || (b += 1); d.data("owl-roundPages", b) })
     }, appendWrapperSizes: function () { this.$owlWrapper.css({ width: this.$owlItems.length * this.itemWidth * 2, left: 0 }); this.appendItemsSizes() }, calculateAll: function () { this.calculateWidth(); this.appendWrapperSizes(); this.loops(); this.max() }, calculateWidth: function () {
-    this.itemWidth = Math.round(this.$elem.width() /
-      this.options.items)
+      this.itemWidth = Math.round(this.$elem.width() /
+        this.options.items)
     }, max: function () { var a = -1 * (this.itemsAmount * this.itemWidth - this.options.items * this.itemWidth); this.options.items > this.itemsAmount ? this.maximumPixels = a = this.maximumItem = 0 : (this.maximumItem = this.itemsAmount - this.options.items, this.maximumPixels = a); return a }, min: function () { return 0 }, loops: function () {
       var a = 0, b = 0, e, c; this.positionsInArray = [0]; this.pagesInArray = []; for (e = 0; e < this.itemsAmount; e += 1)b += this.itemWidth, this.positionsInArray.push(-b), !0 === this.options.scrollPerPage && (c = f(this.$owlItems[e]),
         c = c.data("owl-roundPages"), c !== a && (this.pagesInArray[a] = this.positionsInArray[e], a = c))
@@ -119,7 +119,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     }, checkPagination: function () {
       var a = this; if (!1 === a.options.pagination) return !1; a.paginationWrapper.find(".owl-page").each(function () {
         f(this).data("owl-roundPages") ===
-        f(a.$owlItems[a.currentItem]).data("owl-roundPages") && (a.paginationWrapper.find(".owl-page").removeClass("active"), f(this).addClass("active"))
+          f(a.$owlItems[a.currentItem]).data("owl-roundPages") && (a.paginationWrapper.find(".owl-page").removeClass("active"), f(this).addClass("active"))
       })
     }, checkNavigation: function () {
       if (!1 === this.options.navigation) return !1; !1 === this.options.rewindNav && (0 === this.currentItem && 0 === this.maximumItem ? (this.buttonPrev.addClass("disabled"), this.buttonNext.addClass("disabled")) : 0 === this.currentItem && 0 !== this.maximumItem ? (this.buttonPrev.addClass("disabled"), this.buttonNext.removeClass("disabled")) : this.currentItem ===
@@ -135,14 +135,14 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
         !0 === c.browser.support3d ? c.transition3d(c.positionsInArray[a]) : c.css2slide(c.positionsInArray[a], 1), c.afterGo(), c.singleItemTransition(), !1; a = c.positionsInArray[a]; !0 === c.browser.support3d ? (c.isCss3Finish = !1, !0 === b ? (c.swapSpeed("paginationSpeed"), g.setTimeout(function () { c.isCss3Finish = !0 }, c.options.paginationSpeed)) : "rewind" === b ? (c.swapSpeed(c.options.rewindSpeed), g.setTimeout(function () { c.isCss3Finish = !0 }, c.options.rewindSpeed)) : (c.swapSpeed("slideSpeed"), g.setTimeout(function () { c.isCss3Finish = !0 },
           c.options.slideSpeed)), c.transition3d(a)) : !0 === b ? c.css2slide(a, c.options.paginationSpeed) : "rewind" === b ? c.css2slide(a, c.options.rewindSpeed) : c.css2slide(a, c.options.slideSpeed); c.afterGo()
     }, jumpTo: function (a) {
-    "function" === typeof this.options.beforeMove && this.options.beforeMove.apply(this, [this.$elem]); a >= this.maximumItem || -1 === a ? a = this.maximumItem : 0 >= a && (a = 0); this.swapSpeed(0); !0 === this.browser.support3d ? this.transition3d(this.positionsInArray[a]) : this.css2slide(this.positionsInArray[a], 1); this.currentItem =
-      this.owl.currentItem = a; this.afterGo()
+      "function" === typeof this.options.beforeMove && this.options.beforeMove.apply(this, [this.$elem]); a >= this.maximumItem || -1 === a ? a = this.maximumItem : 0 >= a && (a = 0); this.swapSpeed(0); !0 === this.browser.support3d ? this.transition3d(this.positionsInArray[a]) : this.css2slide(this.positionsInArray[a], 1); this.currentItem =
+        this.owl.currentItem = a; this.afterGo()
     }, afterGo: function () { this.prevArr.push(this.currentItem); this.prevItem = this.owl.prevItem = this.prevArr[this.prevArr.length - 2]; this.prevArr.shift(0); this.prevItem !== this.currentItem && (this.checkPagination(), this.checkNavigation(), this.eachMoveUpdate(), !1 !== this.options.autoPlay && this.checkAp()); "function" === typeof this.options.afterMove && this.prevItem !== this.currentItem && this.options.afterMove.apply(this, [this.$elem]) }, stop: function () { this.apStatus = "stop"; g.clearInterval(this.autoPlayInterval) },
     checkAp: function () { "stop" !== this.apStatus && this.play() }, play: function () { var a = this; a.apStatus = "play"; if (!1 === a.options.autoPlay) return !1; g.clearInterval(a.autoPlayInterval); a.autoPlayInterval = g.setInterval(function () { a.next(!0) }, a.options.autoPlay) }, swapSpeed: function (a) { "slideSpeed" === a ? this.$owlWrapper.css(this.addCssSpeed(this.options.slideSpeed)) : "paginationSpeed" === a ? this.$owlWrapper.css(this.addCssSpeed(this.options.paginationSpeed)) : "string" !== typeof a && this.$owlWrapper.css(this.addCssSpeed(a)) },
     addCssSpeed: function (a) { return { "-webkit-transition": "all " + a + "ms ease", "-moz-transition": "all " + a + "ms ease", "-o-transition": "all " + a + "ms ease", transition: "all " + a + "ms ease" } }, removeTransition: function () { return { "-webkit-transition": "", "-moz-transition": "", "-o-transition": "", transition: "" } }, doTranslate: function (a) {
       return {
         "-webkit-transform": "translate3d(" + a + "px, 0px, 0px)", "-moz-transform": "translate3d(" + a + "px, 0px, 0px)", "-o-transform": "translate3d(" + a + "px, 0px, 0px)", "-ms-transform": "translate3d(" +
-          a + "px, 0px, 0px)", transform: "translate3d(" + a + "px, 0px,0px)"
+        a + "px, 0px, 0px)", transform: "translate3d(" + a + "px, 0px,0px)"
       }
     }, transition3d: function (a) { this.$owlWrapper.css(this.doTranslate(a)) }, css2move: function (a) { this.$owlWrapper.css({ left: a }) }, css2slide: function (a, b) { var e = this; e.isCssFinish = !1; e.$owlWrapper.stop(!0, !0).animate({ left: a }, { duration: b || e.options.slideSpeed, complete: function () { e.isCssFinish = !0 } }) }, checkBrowser: function () {
       var a = k.createElement("div"); a.style.cssText = "  -moz-transform:translate3d(0px, 0px, 0px); -ms-transform:translate3d(0px, 0px, 0px); -o-transform:translate3d(0px, 0px, 0px); -webkit-transform:translate3d(0px, 0px, 0px); transform:translate3d(0px, 0px, 0px)";
@@ -170,8 +170,8 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
         a = 0); return a
     }, closestItem: function () {
       var a = this, b = !0 === a.options.scrollPerPage ? a.pagesInArray : a.positionsInArray, e = a.newPosX, c = null; f.each(b, function (d, g) {
-      e - a.itemWidth / 20 > b[d + 1] && e - a.itemWidth / 20 < g && "left" === a.moveDirection() ? (c = g, a.currentItem = !0 === a.options.scrollPerPage ? f.inArray(c, a.positionsInArray) : d) : e + a.itemWidth / 20 < g && e + a.itemWidth / 20 > (b[d + 1] || b[d] - a.itemWidth) && "right" === a.moveDirection() && (!0 === a.options.scrollPerPage ? (c = b[d + 1] || b[b.length - 1], a.currentItem = f.inArray(c, a.positionsInArray)) :
-        (c = b[d + 1], a.currentItem = d + 1))
+        e - a.itemWidth / 20 > b[d + 1] && e - a.itemWidth / 20 < g && "left" === a.moveDirection() ? (c = g, a.currentItem = !0 === a.options.scrollPerPage ? f.inArray(c, a.positionsInArray) : d) : e + a.itemWidth / 20 < g && e + a.itemWidth / 20 > (b[d + 1] || b[d] - a.itemWidth) && "right" === a.moveDirection() && (!0 === a.options.scrollPerPage ? (c = b[d + 1] || b[b.length - 1], a.currentItem = f.inArray(c, a.positionsInArray)) :
+          (c = b[d + 1], a.currentItem = d + 1))
       }); return a.currentItem
     }, moveDirection: function () { var a; 0 > this.newRelativeX ? (a = "right", this.playDirection = "next") : (a = "left", this.playDirection = "prev"); return a }, customEvents: function () {
       var a = this; a.$elem.on("owl.next", function () { a.next() }); a.$elem.on("owl.prev", function () { a.prev() }); a.$elem.on("owl.play", function (b, e) { a.options.autoPlay = e; a.play(); a.hoverStatus = "play" }); a.$elem.on("owl.stop", function () { a.stop(); a.hoverStatus = "stop" }); a.$elem.on("owl.goTo", function (b, e) { a.goTo(e) });
@@ -195,7 +195,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
     }, transitionTypes: function (a) { this.outClass = "owl-" + a + "-out"; this.inClass = "owl-" + a + "-in" }, singleItemTransition: function () {
       var a = this, b = a.outClass, e = a.inClass, c = a.$owlItems.eq(a.currentItem), d = a.$owlItems.eq(a.prevItem), f = Math.abs(a.positionsInArray[a.currentItem]) + a.positionsInArray[a.prevItem], g = Math.abs(a.positionsInArray[a.currentItem]) + a.itemWidth / 2; a.isTransition = !0; a.$owlWrapper.addClass("owl-origin").css({
         "-webkit-transform-origin": g + "px", "-moz-perspective-origin": g +
-          "px", "perspective-origin": g + "px"
+        "px", "perspective-origin": g + "px"
       }); d.css({ position: "relative", left: f + "px" }).addClass(b).on("webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend", function () { a.endPrev = !0; d.off("webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend"); a.clearTransStyle(d, b) }); c.addClass(e).on("webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend", function () { a.endCurrent = !0; c.off("webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend"); a.clearTransStyle(c, e) })
     }, clearTransStyle: function (a,
       b) { a.css({ position: "", left: "" }).removeClass(b); this.endPrev && this.endCurrent && (this.$owlWrapper.removeClass("owl-origin"), this.isTransition = this.endCurrent = this.endPrev = !1) }, owlStatus: function () { this.owl = { userOptions: this.userOptions, baseElement: this.$elem, userItems: this.$userItems, owlItems: this.$owlItems, currentItem: this.currentItem, prevItem: this.prevItem, visibleItems: this.visibleItems, isTouch: this.browser.isTouch, browser: this.browser, dragDirection: this.dragDirection } }, clearEvents: function () {
