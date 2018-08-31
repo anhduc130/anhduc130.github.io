@@ -42,7 +42,7 @@
         $(window).on('load', function () {
             $('body').addClass('loaded');
             const date = new Date()
-            document.getElementById('content-copy-right').innerHTML = `Made by Andrew Bui © 2016 - ${date.getFullYear()}`
+            document.getElementById('content-copy-right').innerHTML = `Developed by Andrew Bui © 2016 - ${date.getFullYear()}`
         });
 
 
