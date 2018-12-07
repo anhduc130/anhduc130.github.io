@@ -112,7 +112,7 @@
 
         $(window).load(function () {
             $(".typing").typed({
-                strings: ["I am a Jr. Software Engineer", "I build Applications and Software Services", "I live in Vancouver, Canada"],    /* You can change the home section typing text from
+                strings: ["I am a Software Engineer", "I build Applications and Software Services", "I live in Vancouver, Canada"],    /* You can change the home section typing text from
 	                                                                                            here and do not use "&" use "and" */
                 typeSpeed: 50
             });
@@ -152,13 +152,13 @@
 
             image: {
                 markup: '<div class="mfp-figure portfolio-pop-up">' +
-                '<div class="mfp-close"></div>' +
-                '<div class="mfp-img"></div>' +
-                '<div class="mfp-bottom-bar portfolio_title">' +
-                '<div class="mfp-title"></div>' +
-                '<div class="mfp-counter"></div>' +
-                '</div>' +
-                '</div>',
+                    '<div class="mfp-close"></div>' +
+                    '<div class="mfp-img"></div>' +
+                    '<div class="mfp-bottom-bar portfolio_title">' +
+                    '<div class="mfp-title"></div>' +
+                    '<div class="mfp-counter"></div>' +
+                    '</div>' +
+                    '</div>',
 
                 titleSrc: function (item) {
                     return item.el.attr('title');
